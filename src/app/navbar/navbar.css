@@ -1,0 +1,123 @@
+/* --- Variables --- */
+:host {
+  --nav-height: 80px;
+  --primary-dark: #0e1a35;
+  --accent-blue: #2f66f6;
+  --text-dark: #1e293b;
+  --text-grey: #64748b;
+}
+
+/* Navbar Base Style */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background-color: transparent; /* Start transparent */
+}
+
+/* State: Scrolled (Added via Typescript) */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  height: 70px; /* Shrink slightly on scroll */
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+/* --- Logo --- */
+.logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  letter-spacing: -0.5px;
+}
+
+/* --- Links (Center) --- */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-grey);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-link:hover {
+  color: var(--accent-blue);
+}
+
+.nav-link.active {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* --- Actions (Right) --- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.login-link {
+  text-decoration: none;
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary {
+  background-color: var(--primary-dark);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px; /* Pill shape */
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(47, 102, 246, 0.3);
+}
+
+/* --- Mobile --- */
+.mobile-menu-icon {
+  display: none;
+  color: var(--primary-dark);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-actions {
+    display: none;
+  }
+  
+  .mobile-menu-icon {
+    display: block;
+  }
+}

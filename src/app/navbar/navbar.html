@@ -1,0 +1,26 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="nav-container">
+    
+    <div class="logo" routerLink="/">
+      <span class="logo-text">XpressInspect</span>
+    </div>
+
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a routerLink="/features" routerLinkActive="active" class="nav-link">Features</a>
+      <a routerLink="/pricing" routerLinkActive="active" class="nav-link">Pricing</a>
+    </div>
+
+    <div class="nav-actions">
+      <a routerLink="/login" class="login-link">Log In</a>
+      <button class="btn-primary" routerLink="/dashboard">
+        Get Started
+      </button>
+    </div>
+
+    <div class="mobile-menu-icon">
+      <span class="material-icons">menu</span>
+    </div>
+
+  </div>
+</nav>

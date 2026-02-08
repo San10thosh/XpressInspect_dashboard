@@ -1,1 +1,49 @@
-<p>hero works!</p>
+<section class="hero-container">
+  
+  <div class="glow-effect"></div>
+
+  <div class="floating-icon" 
+       *ngFor="let item of floatingIcons"
+       [style.top]="item.top"
+       [style.left]="item.left"
+       [style.right]="item.right"
+       [style.animation-delay]="item.delay">
+    <span class="material-icons">{{ item.icon }}</span>
+  </div>
+
+  <div class="content-wrapper">
+    
+    <div class="text-content">
+      <h1 class="headline">
+        Master the Workflow.<br>
+        <span class="highlight">Manage with Precision.</span>
+      </h1>
+      
+      <p class="subheadline">
+        XpressInspect helps admins and supervisors replace messy paper trails with a modern, 
+        cloud-based platform built for clarity, speed, and complete control.
+      </p>
+      
+      <div class="cta-wrapper">
+        <button class="btn-gradient" routerLink="/dashboard">
+          Access Dashboard <span class="material-icons">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="dashboard-preview">
+      <div class="browser-frame">
+        <div class="frame-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <div class="address-bar">xpressinspect.com/admin/dashboard</div>
+        </div>
+        <img src="assets/dashboard.jpeg" alt="Admin Dashboard Interface">
+        
+        <div class="fade-overlay"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
