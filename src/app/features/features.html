@@ -1,1 +1,61 @@
-<p>features works!</p>
+<section class="features-container">
+  
+  <div class="header-section">
+    <span class="badge">Powerful Tools</span>
+    <h2>Everything you need to manage inspectors.</h2>
+    <p>Replace fragmented tools with one cohesive operating system.</p>
+  </div>
+
+  <div class="feature-switcher">
+    
+    <div class="feature-list" (wheel)="handleScroll($event)">
+      
+      <div 
+        class="feature-item glass-card" 
+        *ngFor="let feature of features; let i = index" 
+        [class.active]="activeIndex === i"
+        (click)="setActive(i)">
+        
+        <div class="icon-box">
+          <span class="material-icons">{{ feature.icon }}</span>
+        </div>
+        
+        <div class="text-info">
+          <span class="feature-title">{{ feature.title }}</span>
+          <span class="feature-subtitle" *ngIf="activeIndex !== i">Click or scroll to view</span>
+          <span class="feature-subtitle active-sub" *ngIf="activeIndex === i">Viewing details</span>
+        </div>
+
+        <span class="material-icons chevron">chevron_right</span>
+      </div>
+
+    </div>
+
+    <div class="feature-content-panel">
+      <div class="content-card glass-panel">
+        <div class="card-header">
+          <div class="big-icon-wrapper">
+             <span class="material-icons big-icon">{{ features[activeIndex].icon }}</span>
+          </div>
+          <h3>{{ features[activeIndex].title }}</h3>
+        </div>
+        
+        <p class="description">{{ features[activeIndex].description }}</p>
+        
+        <div class="points-grid">
+          <div class="point" *ngFor="let point of features[activeIndex].points">
+            <span class="material-icons check">check_circle</span>
+            <span>{{ point }}</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-learn-more">
+            Learn more <span class="material-icons">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

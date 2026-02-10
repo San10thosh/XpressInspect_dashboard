@@ -110,11 +110,12 @@
 }
 
 .subheadline {
-  font-size: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
   color: var(--text-grey);
   line-height: 1.6;
   margin-bottom: 40px;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }

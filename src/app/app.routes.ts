@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { HeroComponent } from './hero/hero';
+import { HomeComponent } from './home/home'; // Import the new container
 
 export const routes: Routes = [
-  { path: '', component: HeroComponent }, // Show Hero by default
-  // { path: 'dashboard', component: DashboardComponent }, // You will add this later
-  { path: '**', redirectTo: '' } // Redirect unknown paths to home
+  { path: '', component: HomeComponent }, // Point default path to Home
+  { path: '**', redirectTo: '' }
 ];
