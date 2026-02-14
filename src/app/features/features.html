@@ -8,12 +8,13 @@
 
   <div class="feature-switcher">
     
-    <div class="feature-list" (wheel)="handleScroll($event)">
+    <div class="carousel-viewport" (wheel)="handleScroll($event)">
       
       <div 
-        class="feature-item glass-card" 
+        class="feature-item" 
         *ngFor="let feature of features; let i = index" 
         [class.active]="activeIndex === i"
+        [ngStyle]="getItemStyle(i)"
         (click)="setActive(i)">
         
         <div class="icon-box">
@@ -22,28 +23,31 @@
         
         <div class="text-info">
           <span class="feature-title">{{ feature.title }}</span>
-          <span class="feature-subtitle" *ngIf="activeIndex !== i">Click or scroll to view</span>
-          <span class="feature-subtitle active-sub" *ngIf="activeIndex === i">Viewing details</span>
+          <span class="feature-subtitle" *ngIf="activeIndex === i">Viewing details</span>
         </div>
 
         <span class="material-icons chevron">chevron_right</span>
       </div>
 
+      <div class="fade-mask top"></div>
+      <div class="fade-mask bottom"></div>
+
     </div>
 
     <div class="feature-content-panel">
-      <div class="content-card glass-panel">
+      <div class="content-card" *ngFor="let item of [features[activeIndex]]">
+        
         <div class="card-header">
           <div class="big-icon-wrapper">
-             <span class="material-icons big-icon">{{ features[activeIndex].icon }}</span>
+             <span class="material-icons big-icon">{{ item.icon }}</span>
           </div>
-          <h3>{{ features[activeIndex].title }}</h3>
+          <h3>{{ item.title }}</h3>
         </div>
         
-        <p class="description">{{ features[activeIndex].description }}</p>
+        <p class="description">{{ item.description }}</p>
         
         <div class="points-grid">
-          <div class="point" *ngFor="let point of features[activeIndex].points">
+          <div class="point-pill" *ngFor="let point of item.points">
             <span class="material-icons check">check_circle</span>
             <span>{{ point }}</span>
           </div>
@@ -54,6 +58,7 @@
             Learn more <span class="material-icons">arrow_forward</span>
           </button>
         </div>
+
       </div>
     </div>
 

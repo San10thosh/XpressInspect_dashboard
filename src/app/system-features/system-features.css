@@ -1,0 +1,165 @@
+/* --- Variables --- */
+:host {
+  --primary-dark: #0e1a35;
+  --text-dark: #1e293b;
+  --text-grey: #64748b;
+  --bg-color: #ffffff;
+  --border-color: #b2b2b2;
+}
+
+.features-section {
+  padding: 100px 20px;
+  background-color: var(--bg-color);
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+.header-content {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: Add the little spark/star from your screenshot */
+.section-title::after {
+  content: '✦';
+  position: absolute;
+  top: -10px;
+  right: -25px;
+  color: #577eff; /* distinct red/pink color */
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+}
+
+.section-subtitle {
+  color: var(--text-grey);
+  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Grid Layout --- */
+.features-grid {
+  display: grid;
+  /* Auto-fit creates a responsive layout (4 cols on desktop, 1 on mobile) */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* --- Card Design --- */
+.feature-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect: Lift and Shadow (Like the reference) */
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #2f66f6;
+}
+
+/* --- Icons (Colorful Circles) --- */
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.feature-card .material-icons {
+  font-size: 30px;
+}
+
+/* Color Themes for Icons (Using your reference style) */
+.feature-card.blue .icon-wrapper { background: #e0f2fe; color: #0284c7; }
+.feature-card.green .icon-wrapper { background: #dcfce7; color: #16a34a; }
+.feature-card.purple .icon-wrapper { background: #f3e8ff; color: #9333ea; }
+.feature-card.orange .icon-wrapper { background: #ffedd5; color: #ea580c; }
+.feature-card.teal .icon-wrapper { background: #ccfbf1; color: #0d9488; }
+.feature-card.dark .icon-wrapper { background: #f1f5f9; color: #334155; }
+.feature-card.red .icon-wrapper { background: #fee2e2; color: #dc2626; }
+.feature-card.indigo .icon-wrapper { background: #e0e7ff; color: #4f46e5; }
+
+/* --- Typography --- */
+.card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-grey);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1; /* Pushes 'Learn More' to bottom */
+}
+
+/* --- Link --- */
+.learn-more {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.feature-card:hover .learn-more {
+  color: #2f66f6; /* Use your brand blue on hover */
+}
+
+.learn-more .arrow {
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.feature-card:hover .learn-more .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Footer Tag --- */
+.bottom-tag {
+  font-family: 'Inter', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.bottom-tag .link-text {
+  font-family: 'Inter', sans-serif;
+  border-bottom: 1px solid #cbd5e1;
+  padding-bottom: 1px;
+}

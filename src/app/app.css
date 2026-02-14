@@ -1,0 +1,12 @@
+.dashboard-layout {
+  display: flex; /* Creates the side-by-side layout */
+  min-height: 100vh;
+  background-color: #f8fafc; /* Global background */
+}
+
+.main-content {
+  flex: 1; /* Takes up all remaining width */
+  margin-left: 280px; /* Pushes content to the right of the fixed sidebar (width: 280px) */
+  padding: 0; /* Let the components inside handle their own padding */
+  overflow-y: auto; /* Allows scrolling if content is long */
+}

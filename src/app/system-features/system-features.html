@@ -1,0 +1,30 @@
+<section class="features-section">
+  
+  <div class="header-content">
+    <h2 class="section-title">Support all of your productivity</h2>
+    <p class="section-subtitle">We have 99% features and apps to support your productivity</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card" *ngFor="let item of features" [ngClass]="item.color">
+      
+      <div class="icon-wrapper">
+        <span class="material-icons">{{ item.icon }}</span>
+      </div>
+
+      <h3 class="card-title">{{ item.title }}</h3>
+      <p class="card-desc">{{ item.desc }}</p>
+      
+      <a href="#" class="learn-more">
+        Learn More <span class="material-icons arrow">arrow_forward</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="bottom-tag">
+    <span class="emoji">😎</span> 
+    <span class="link-text">8+ features to support your productivity</span>
+  </div>
+
+</section>

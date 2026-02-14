@@ -1,0 +1,107 @@
+<div class="page-container">
+  
+  <header class="content-header">
+    <div class="title-group">
+      <h1>Inspector Authorization Cards</h1>
+      <p>Manage digital credentials and access.</p>
+    </div>
+    
+    <div class="control-bar">
+      <div class="search-box">
+        <span class="material-icons">search</span>
+        <input type="text" placeholder="Search inspectors..." [(ngModel)]="searchTerm">
+      </div>
+      <div class="actions">
+        <select [(ngModel)]="selectedStatus" class="status-select">
+          <option>All Status</option>
+          <option>Active</option>
+          <option>Expiring</option>
+        </select>
+        <button class="btn-primary" (click)="downloadAll()">
+          <span class="material-icons">download</span> Download All
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cards-grid">
+    
+    <div class="qonto-card add-new">
+      <div class="dashed-border">
+        <div class="icon-circle">
+          <span class="material-icons">person_add</span>
+        </div>
+        <h3>New Inspector</h3>
+        <p>Onboard a new inspector to the system</p>
+        <button class="btn-invite">Onboard</button>
+      </div>
+    </div>
+
+    <div class="qonto-card" *ngFor="let person of inspectors">
+      
+      <div class="card-top">
+        <span class="material-icons edit-icon">edit</span>
+      </div>
+
+      <div class="avatar-section">
+        <div class="avatar-circle" [ngClass]="person.avatarColor">
+          {{ person.initials }}
+          <div class="status-indicator" [ngClass]="person.statusClass">
+            <span class="material-icons" *ngIf="person.statusClass === 'active'">check</span>
+            <span class="material-icons" *ngIf="person.statusClass === 'expiring'">priority_high</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>{{ person.name }}</h3>
+        <span class="email-text">{{ person.psn }}</span>
+
+        <div class="equipment-badges">
+          <span class="pill" *ngFor="let item of person.equipment.slice(0, 5)">
+            {{ item }}
+          </span>
+          <span class="pill more" *ngIf="person.equipment.length > 5">
+            +{{ person.equipment.length - 5 }}
+          </span>
+        </div>
+        <div class="card-actions">
+      <button class="action-btn view">View Profile</button>
+      
+      <button class="action-btn download" *ngIf="person.statusClass === 'active'">Download</button>
+      <button class="action-btn renew" *ngIf="person.statusClass === 'expiring'">Renew Now</button>
+    </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="card-footer">
+        <div class="footer-col left">
+          <span class="label">STATUS</span>
+          <span class="value status-text" [ngClass]="person.statusClass">{{ person.status | uppercase }}</span>
+        </div>
+        <div class="footer-col center">
+          <span class="label">AUTH #</span>
+          <span class="value">{{ person.authNumber }}</span>
+        </div>
+        <div class="footer-col right">
+          <span class="label">EXPIRES</span>
+          <span class="value">{{ person.expiry }}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="pagination">
+    <span class="page-info">Showing 1-6 of 145 cards</span>
+    <div class="page-nav">
+      <button disabled>Prev</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>Next</button>
+    </div>
+  </div>
+
+</div>
