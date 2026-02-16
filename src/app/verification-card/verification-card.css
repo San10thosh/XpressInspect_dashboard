@@ -49,7 +49,7 @@
   box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(59, 130, 246, 0.2);
 }
 
-.liquid-card.flipped { transform: rotateY(180deg); }
+.liquid-card.flipped { transform: rotateY(180deg);transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
 
 /* --- Card Faces (Liquid Glassmorphism) --- */
 .card-face {
@@ -105,16 +105,16 @@
 .date-box { display: flex; flex-direction: column; gap: 4px; }
 .date-box label { font-size: 0.65rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
 .date-box span { font-size: 0.95rem; font-weight: 600; }
-.highlight-date { color: #60a5fa; text-shadow: 0 0 10px rgba(96, 165, 250, 0.4); }
+.highlight-date { color: #02a305; text-shadow: 0 0 10px rgba(96, 165, 250, 0.4); }
 
 /* Divider */
 .divider-vertical { width: 1px; background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.3), rgba(255,255,255,0.1)); margin: 0 24px; }
 
 /* Right Pane (QR Code) */
 .right-pane { width: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-.qr-glass-box { width: 100px; height: 100px; background: rgba(255,255,255,0.8); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.1); }
-.qr-icon { font-size: 80px; color: #0f172a; }
-.qr-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.8); }
+.qr-glass-box { width: 110px; height: 110px; background: rgba(255,255,255,0.8); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 15px rgba(0,0,0,0.1); }
+.qr-icon { font-size: 90px; color: #0f172a; }
+.qr-label { font-size: 0.75rem; font-weight: 600; padding: 15px ;letter-spacing: 1px; color: rgba(255,255,255,0.8); }
 .brand-watermark { margin-top: auto; font-size: 0.65rem; display: flex; align-items: center; gap: 4px; color: rgba(255,255,255,0.4); }
 .brand-watermark .material-icons { font-size: 12px; }
 
@@ -126,14 +126,14 @@
 
 .equipment-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; overflow-y: auto; flex: 1; align-content: flex-start; padding-right: 5px; }
 .liquid-pill { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.25); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; color: #fff; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.2s; }
-.liquid-pill:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+.liquid-pill:hover { background: rgba(255,255,255,0.2); transform: translateY(2px); }
 .liquid-pill .material-icons { font-size: 14px; color: #60a5fa; }
 
 /* Hide scrollbar */
 .equipment-grid::-webkit-scrollbar { width: 0px; }
 
 /* --- Buttons --- */
-.glass-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-top: auto; backdrop-filter: blur(5px); }
+.glass-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #ffffff; padding: 10px 16px; border-radius: 12px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-top: auto; backdrop-filter: blur(5px); }
 .glass-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4); box-shadow: 0 4px 15px rgba(255,255,255,0.1); }
-.glass-btn .material-icons { font-size: 18px; }
+.glass-btn .material-icons { font-size: 18px; color: #60a5fa; }
 .back-btn { margin-top: 16px; justify-content: center; gap: 8px; }

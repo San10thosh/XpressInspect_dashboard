@@ -18,6 +18,7 @@
   
 
 <div id="printable-report">
+  
   </div>
   </header>
 
@@ -81,7 +82,7 @@
           <div class="qr-text">
             <h4>Scan for Verification</h4>
             <p>Scan this QR code to view the complete inspector profile in real-time.</p>
-            <a href="#" class="verify-link">{{ inspector.verification.url }}</a>
+            <a (click)="openVerificationCard()" class="verify-link" style="cursor: pointer;">Open Verification</a>
           </div>
         </div>
       </div>

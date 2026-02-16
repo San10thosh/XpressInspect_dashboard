@@ -28,7 +28,8 @@
   background-color: var(--bg-page); /* CRITICAL: Hides text scrolling underneath */
   z-index: 100; /* Keeps it above the grid */
   width: 100%;
-    box-sizing: border-box;
+  display: block;
+  box-sizing: border-box;
 }
 
 /* Target your main sidebar container */
@@ -58,7 +59,8 @@
 .header-left { 
     display: flex; 
     align-items: center; 
-    gap: 16px; 
+    gap: 16px;
+    white-space: nowrap; /* Prevents the title from breaking into multiple lines */
 }
 .header-left h1 { 
     margin: 0; 
@@ -199,29 +201,41 @@ button { display: flex; align-items: center; gap: 8px; font-weight: 600; font-si
 }
 
 @media print {
-  /* 1. Hide everything we DONT want in the report */
-  .sidebar-container, 
-  .action-buttons, 
-  .top-navbar {
-    display: none !important;
-  }
-
-  /* 2. Reset the main container to take up the full page */
-  body, .main-content-wrapper {
-    background-color: white !important;
-    margin: 0 !important;
+  /* 1. Reset Page Padding */
+  .dashboard-page {
     padding: 0 !important;
+    margin: 0 !important;
+    background-color: white !important;
+  }
+
+  /* 2. Remove Sticky Behaviors */
+  /* Sticky elements overlap text when printing multiple pages */
+  .sticky-top-section,
+  .column-left {
+    position: relative !important;
+    top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* 3. Clean up the Grid for A4 Paper */
+  .bento-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .column-left, .column-right {
     width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
   }
 
-  /* 3. Force the browser to print your background colors (like the blue badges) */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* 4. Keep the Signatures and QR Code together (prevent page breaks inside them) */
-  .signatures-card, .verification-card {
-    page-break-inside: avoid;
+  /* 4. Prevent Cards from splitting across pages */
+  .card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    box-shadow: none !important; /* Looks cleaner on paper */
+    border: 1px solid #e5e7eb !important;
   }
 }

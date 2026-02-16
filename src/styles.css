@@ -1,0 +1,29 @@
+@media print {
+  /* 1. HIDE ALL NAVIGATION & UI ELEMENTS */
+  app-sidebar, 
+  .header-actions, 
+  .tabs-container, 
+  .btn-icon {
+    display: none !important;
+  }
+
+  /* 2. REMOVE SIDEBAR MARGINS */
+  /* This pushes the content back to the left edge since the sidebar is gone */
+  .content-area {
+    margin-left: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .dashboard-wrapper {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* 3. FORCE BACKGROUND COLORS TO PRINT */
+  /* Browsers strip background colors by default to save ink. This forces them back on. */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
