@@ -75,7 +75,7 @@
           <h3>Verification</h3>
         </div>
         <div class="qr-container">
-          <div class="qr-placeholder">
+          <div class="qr-placeholder"(click)="openVerificationCard()" style="cursor: pointer;">
             <span class="material-icons">qr_code_2</span>
           </div>
           <div class="qr-text">
@@ -161,10 +161,16 @@
           This authorization is valid only with valid photo identification. 
           Unauthorized use or alteration of this card is prohibited and may result in legal action.
         </p>
+        
       </div>
 
     </div>
 
   </div>
+  <app-verification-card 
+  [isOpen]="isModalOpen" 
+  [inspector]="inspector" 
+  (close)="isModalOpen = false">
+</app-verification-card>
 
 </div>

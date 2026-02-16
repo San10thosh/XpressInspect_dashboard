@@ -1,0 +1,87 @@
+<div class="backdrop" *ngIf="isOpen" (click)="closeModal($event)">
+  
+  <button class="btn-close" (click)="close.emit()">
+    <span class="material-icons">close</span>
+  </button>
+
+  <div class="card-scene">
+    
+    <div class="liquid-card" [class.flipped]="isFlipped">
+      
+      <div class="card-face card-front">
+        
+        <div class="glass-highlight"></div>
+
+        <div class="front-layout">
+          <div class="left-pane">
+            
+            <div class="identity-section">
+              <div class="avatar-ring">
+                <div class="avatar bg-gradient">{{ inspector?.initials }}</div>
+                <div class="status-dot"></div>
+              </div>
+              <div class="info">
+                <h2>{{ inspector?.name }}</h2>
+                <span class="badge">ID: {{ inspector?.psn }}</span>
+              </div>
+            </div>
+
+            <div class="dates-grid">
+              <div class="date-box">
+                <label>Issue Date</label>
+                <span>{{ inspector?.authDetails?.issueDate }}</span>
+              </div>
+              <div class="date-box">
+                <label>Valid Thru</label>
+                <span class="highlight-date">{{ inspector?.authDetails?.expiryDate }}</span>
+              </div>
+            </div>
+
+            <button class="glass-btn flip-btn" (click)="toggleFlip()">
+              View Specializations <span class="material-icons">refresh</span>
+            </button>
+          </div>
+
+          <div class="divider-vertical"></div>
+
+          <div class="right-pane">
+            <div class="qr-wrapper">
+              <div class="qr-glass-box">
+                <span class="material-icons qr-icon">qr_code_2</span>
+              </div>
+              <span class="qr-label">Scan for CV</span>
+            </div>
+            <div class="brand-watermark">
+              <span class="material-icons">verified_user</span> XpressInspect
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-face card-back">
+        
+        <div class="glass-highlight"></div>
+
+        <div class="back-header">
+          <h3>Inspector Specializations</h3>
+          <p>Authorized to inspect the following equipment:</p>
+        </div>
+
+        <div class="equipment-grid">
+          <ng-container *ngFor="let category of inspector?.deviceTypes">
+            <div class="liquid-pill" *ngFor="let item of category.items">
+              <span class="material-icons">verified</span>
+              {{ item }}
+            </div>
+          </ng-container>
+        </div>
+
+        <button class="glass-btn flip-btn back-btn" (click)="toggleFlip()">
+          <span class="material-icons">arrow_back</span> Back to Profile
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

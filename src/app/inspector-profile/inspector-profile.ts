@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common'; // Import Location
+import { VerificationCardComponent } from '../verification-card/verification-card'; // Import the verification card component
 import * as html2pdf from 'html2pdf.js'; // Import html2pdf.js
 
 @Component({
   selector: 'app-inspector-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, VerificationCardComponent],
   templateUrl: './inspector-profile.html',
   styleUrls: ['./inspector-profile.css']
 })
 export class InspectorProfileComponent {
+  isModalOpen: boolean = false; // Controls the visibility of the verification card modal
   constructor(private location: Location) {}
   // Mock data based on your original page
   inspector = {
@@ -40,12 +42,12 @@ export class InspectorProfileComponent {
         items: ['Air Conditioning Units']
       }
     ],
-
   verification: {
     url: 'https://xpressinspect.com/verify/AUTH-2025-123456',
     approver: 'Robert Williams',
     approverRole: 'Approver'
   }
+  
 };
 
   downloadPDF() {
@@ -74,8 +76,12 @@ export class InspectorProfileComponent {
 goBack() {
   this.location.back(); // This acts exactly like the browser's back button
 }
-
+openVerificationCard() {
+    this.isModalOpen = true;
+  }
 printReport() {
   window.print();
+
+  
 }
 }
