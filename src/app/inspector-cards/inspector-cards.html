@@ -66,7 +66,7 @@
           </span>
         </div>
         <div class="card-actions">
-      <button class="action-btn view">View Profile</button>
+      <button class="action-btn view" routerLink="/dashboard/inspector-profile">View Profile</button>
       
       <button class="action-btn download" *ngIf="person.statusClass === 'active'">Download</button>
       <button class="action-btn renew" *ngIf="person.statusClass === 'expiring'">Renew Now</button>

@@ -1,0 +1,227 @@
+/* --- Variables --- */
+:host {
+  --primary-dark: #111827;
+  --accent-blue: #3b82f6;
+  --bg-page: #f9fafb;
+  --card-bg: #ffffff;
+  --text-main: #000000;
+  --text-grey: #6b7280;
+  --border-color: #e5e7eb;
+  --success: #10b981;
+  --danger: #ef4444;
+}
+
+
+.dashboard-page {
+  padding: 0 40px 30px 40px;
+  background-color: var(--bg-page);
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  width: 100%;
+}
+
+.sticky-top-section {
+  position: sticky;
+  top: 0;
+  padding-top: 30px; /* The top padding moved here */
+  background-color: var(--bg-page); /* CRITICAL: Hides text scrolling underneath */
+  z-index: 100; /* Keeps it above the grid */
+  width: 100%;
+    box-sizing: border-box;
+}
+
+/* Target your main sidebar container */
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Forces it to take the full height of the screen */
+  position: sticky; /* Optional: keeps it in place if the right side scrolls */
+  top: 0;
+}
+
+/* Target the wrapper holding the bottom user info (Robert Williams) */
+.sidebar-bottom-user {
+  margin-top: auto; /* This is the magic bullet: it pushes the element to the absolute bottom */
+  margin-bottom: 20px; /* Add a little breathing room at the very bottom */
+}
+
+/* --- 1. Header --- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.header-left { 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+}
+.header-left h1 { 
+    margin: 0; 
+    font-size: 1.5rem;
+     font-weight: 600; 
+     color: var(--primary-dark); 
+    }
+.btn-icon { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    border-radius: 8px; width: 40px; 
+    height: 40px; display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; color: 
+    var(--text-main); transition: 0.2s;
+ }
+
+.btn-icon:hover { background: #e1e3e8; }
+
+.header-actions { display: flex; gap: 12px; margin-left: auto; }
+button { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.9rem; border-radius: 8px; padding: 8px 16px; cursor: pointer; transition: 0.2s; }
+.btn-outline { background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-main); }
+.btn-outline:hover { background: #f3f4f6; }
+.btn-primary { background: var(--accent-blue); border: 1px solid var(--accent-blue); color: #fff; }
+.btn-primary:hover { background: #2563eb; }
+.text-danger { color: var(--danger); border-color: #fca5a5; }
+.text-danger:hover { background: #fef2f2; }
+
+/* --- 2. Tabs --- */
+.tabs-container {
+  display: flex; 
+  gap: 8px; 
+  margin-bottom: 30px; 
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 12px;
+  width: 100%;
+}
+.tab {
+  background: transparent; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-grey);
+  padding: 8px 16px; border-radius: 8px; transition: 0.2s;
+}
+.tab:hover { background: #d1d2d399; color: var(--text-main); }
+.tab.active { background: #a5ccff8f; color: var(--accent-blue); }
+.badge { background: #e5e7eb; color: var(--text-grey); padding: 2px 6px; border-radius: 12px; font-size: 0.75rem; margin-left: 4px; }
+
+/* --- 3. Bento Grid --- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr; /* Fixed left column, fluid right column */
+  gap: 24px;
+}
+.column-left { 
+    display: flex; 
+    flex-direction: column;
+    gap: 24px; 
+    position: sticky;
+    top: 180px;          /* The distance from the top of the screen when it sticks */
+    align-self: start;
+}
+
+.column-right { display: flex; flex-direction: column; gap: 24px; }
+
+/* Shared Card Styles */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.card-header h3 { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--primary-dark); }
+.btn-icon-small { background: transparent; border: 1px solid var(--border-color); border-radius: 6px; padding: 4px; cursor: pointer; color: var(--text-grey); }
+
+/* --- Profile Card --- */
+.profile-main { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.avatar { width: 64px; height: 64px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 600; color: #fff; }
+.bg-blue { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+.profile-info h2 { margin: 0 0 4px 0; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+.status-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 12px; background: #ecfdf5; color: var(--success); }
+.status-badge .material-icons { font-size: 14px; }
+.id-text { color: var(--text-grey); font-size: 0.8rem; }
+
+.section-title { font-size: 0.85rem; font-weight: 600; color: var(--text-grey); margin-bottom: 12px; margin-top: 24px; }
+.contact-grid { display: flex; flex-direction: column; gap: 12px; }
+.contact-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
+.contact-item .material-icons { color: var(--accent-blue); background: #eff6ff; padding: 6px; border-radius: 8px; font-size: 18px; }
+
+.personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.info-block label { display: block; font-size: 0.8rem; color: var(--text-grey); margin-bottom: 4px; }
+.info-block span { font-weight: 600; font-size: 0.95rem; }
+
+/* --- Verification Card --- */
+.qr-container { display: flex; gap: 16px; align-items: center; }
+.qr-placeholder { width: 100px; height: 80px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed #acacad; }
+.qr-placeholder .material-icons { font-size: 50px; color: var(--text-grey); }
+.qr-text h4 { margin: 0 0 4px 0; font-size: 0.9rem; }
+.qr-text p { margin: 0 0 4px 2px; font-size: 0.8rem; color: var(--text-grey); line-height: 1.2; }
+.verify-link { font-size: 0.75rem; color: var(--accent-blue); text-decoration: none; font-weight: 600; word-break: break-all; }
+
+/* --- Auth Card --- */
+.auth-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+.auth-header h3 { margin: 0 0 4px 0; font-size: 1.2rem; color: var(--primary-dark); }
+.auth-number { font-size: 0.85rem; color: var(--text-grey); }
+.status-pill.success { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; color: var(--success); padding: 6px 12px; border-radius: 20px; background: #ecfdf5; border: 1px solid #a7f3d0; }
+
+.dates-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+.date-block, .duration-block { display: flex; flex-direction: column; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.dot.green { background: var(--success); }
+.dot.orange { background: #f59e0b; }
+.date-block label { font-size: 0.8rem; color: var(--text-grey); margin-bottom: 6px; display: flex; align-items: center; }
+.date-block span { font-size: 1.05rem; font-weight: 600; }
+
+/* --- Equipment Card --- */
+.btn-outline-small { background: var(--card-bg); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.equipment-list { display: flex; flex-direction: column; gap: 20px; }
+.equipment-category { background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid var(--border-color); }
+.category-title { font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.text-success { color: var(--success); }
+.sub-items { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sub-items li { font-size: 0.9rem; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+.bullet { width: 4px; height: 4px; background: var(--text-grey); border-radius: 50%; }
+
+/* --- Signatures Card --- */
+.signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 24px; }
+.sig-block { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sig-line { width: 100%; height: 40px; border-bottom: 1px solid var(--primary-dark); margin-bottom: 8px; display: flex; align-items: flex-end; justify-content: center; font-size: 1.2rem; }
+.handwriting { font-family: 'Brush Script MT', cursive; color: var(--primary-dark); }
+.sig-block label { font-weight: 600; font-size: 0.9rem; }
+.sub-label { font-size: 0.75rem; color: var(--text-grey); margin-top: 4px; }
+.legal-disclaimer { font-size: 0.75rem; color: var(--text-grey); text-align: center; font-style: italic; margin: 0; line-height: 1.5; padding-top: 20px; border-top: 1px dashed var(--border-color); }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .bento-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  /* 1. Hide everything we DONT want in the report */
+  .sidebar-container, 
+  .action-buttons, 
+  .top-navbar {
+    display: none !important;
+  }
+
+  /* 2. Reset the main container to take up the full page */
+  body, .main-content-wrapper {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* 3. Force the browser to print your background colors (like the blue badges) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 4. Keep the Signatures and QR Code together (prevent page breaks inside them) */
+  .signatures-card, .verification-card {
+    page-break-inside: avoid;
+  }
+}

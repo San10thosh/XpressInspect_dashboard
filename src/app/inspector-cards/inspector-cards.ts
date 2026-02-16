@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'; // Import RouterModule for routerLink
 
 @Component({
   selector: 'app-inspector-cards',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './inspector-cards.html',
   styleUrls: ['./inspector-cards.css']
 })

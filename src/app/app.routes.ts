@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home'; // Your Landing Page
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout';
 import { InspectorCardsComponent } from './inspector-cards/inspector-cards';
+import { InspectorProfileComponent } from './inspector-profile/inspector-profile';
 
 export const routes: Routes = [
   // 1. Landing Page (Public)
@@ -19,6 +20,7 @@ export const routes: Routes = [
       { path: 'inspector-cards', component: InspectorCardsComponent },
       // You can add more pages here later, e.g.,
       // { path: 'approvals', component: ApprovalsComponent }
+      { path: 'inspector-profile', component: InspectorProfileComponent }
     ]
   },
 
