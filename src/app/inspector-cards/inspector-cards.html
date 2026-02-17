@@ -26,16 +26,6 @@
 
   <div class="cards-grid">
     
-    <div class="qonto-card add-new">
-      <div class="dashed-border">
-        <div class="icon-circle">
-          <span class="material-icons">person_add</span>
-        </div>
-        <h3>New Inspector</h3>
-        <p>Onboard a new inspector to the system</p>
-        <button class="btn-invite">Onboard</button>
-      </div>
-    </div>
 
     <div class="qonto-card" *ngFor="let person of inspectors">
       
@@ -68,7 +58,7 @@
         <div class="card-actions">
       <button class="action-btn view" routerLink="/dashboard/inspector-profile">View Profile</button>
       
-      <button class="action-btn download" *ngIf="person.statusClass === 'active'">Download</button>
+      <button class="action-btn download" (click)="openVerificationCard(person)" *ngIf="person.statusClass === 'active'">View Card</button>
       <button class="action-btn renew" *ngIf="person.statusClass === 'expiring'">Renew Now</button>
     </div>
       </div>
@@ -103,5 +93,10 @@
       <button>Next</button>
     </div>
   </div>
+  <app-verification-card 
+  [isOpen]="isModalOpen" 
+  [inspector]="selectedInspector" 
+  (close)="isModalOpen = false">
+</app-verification-card>
 
 </div>

@@ -303,10 +303,15 @@
 .action-btn {
   width: 140px; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.9rem;
 }
-.action-btn.view { border: 1px solid var(--border-light); background: var(--white); color: var(--primary-dark); }
+.action-btn.renew { border: 1px solid #ababab62; background: #f75c31de; color: var(--white); }
+.action-btn.renew:hover {
+  background: #fc4d21;
+  border-color: #d1d5db57;
+}
+.action-btn.view { border: 1px solid #ababab62 ; background: var(--white); color: var(--primary-dark); }
 .action-btn.view:hover {
-  background: #d7d8d8;
-  border-color: #d1d5db;
+  background: #90909029;
+  border-color: #00000050;
 }
 .action-btn.download { border: none; background: var(--accent-blue); color: var(--white); }
 .action-btn.download:hover { background: #2563eb; border-color: #2563eb; }
@@ -318,16 +323,16 @@
   align-items: center; 
   padding-top: 20px; 
   border-top: 1px solid var(--border-light); 
-  color: var(--text-grey); 
+  color: #6c6c6c;; 
   font-size: 0.9rem; 
 }
 
 .page-nav button { 
-  background: var(--white); 
-  border: 1px solid var(--border-light); 
+  background: #ffffff; 
+  border: 1px solid #7b7b7b; 
   padding: 6px 12px; margin-left: 4px; 
   border-radius: 4px; cursor: pointer;
-   color: var(--text-grey); 
+   color: #000000; 
   }
 
 .page-nav button.active { 

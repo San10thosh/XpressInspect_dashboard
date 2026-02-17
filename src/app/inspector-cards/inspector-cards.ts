@@ -2,17 +2,20 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'; // Import RouterModule for routerLink
+import { VerificationCardComponent } from '../verification-card/verification-card'; // Import the verification card component
 
 @Component({
   selector: 'app-inspector-cards',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, VerificationCardComponent],
   templateUrl: './inspector-cards.html',
   styleUrls: ['./inspector-cards.css']
 })
 export class InspectorCardsComponent {
   searchTerm: string = '';
   selectedStatus: string = 'All Statuses';
+  isModalOpen: boolean = false;
+  selectedInspector: any = null;
 
   inspectors = [
     {
@@ -81,8 +84,12 @@ export class InspectorCardsComponent {
       statusClass: 'active',
       avatarColor: 'bg-cyan'
     }
+    
   ];
-
+  openVerificationCard(inspector: any) {
+    this.selectedInspector = inspector; // Store the specific inspector clicked
+    this.isModalOpen = true;            // Open the modal
+  }
   downloadAll() {
     console.log('Downloading cards...');
   }
